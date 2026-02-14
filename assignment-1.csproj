@@ -1,39 +1,11 @@
-namespace ATMApp.Service
-{
-    public class BankingService
-    {
-        private double lastTransactionAmount = 0;
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>assignment_1</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
-        public double GetBalance(double balance)
-        {
-            return balance;
-        }
-
-
-        public void Deposit(ref double balance, double amount)
-        {
-            balance += amount;
-            lastTransactionAmount = amount;
-        }
-
-        public void Withdraw(ref double balance, double amount, out bool isSuccessful)
-        {
-            if (amount <= balance)
-            {
-                balance -= amount;
-                lastTransactionAmount = amount;
-                isSuccessful = true;
-            }
-            else
-            {
-                isSuccessful = false;
-            }
-        }
-
-        public double GetLastTransaction()
-        {
-            return lastTransactionAmount;
-        }
-    }
-}
+</Project>
