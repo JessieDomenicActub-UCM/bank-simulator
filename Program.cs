@@ -11,7 +11,7 @@ namespace ATMApp.View
             double accountBalance = 1000.00; 
             bool isRunning = true;
 
-            Console.WriteLine("Jeremy Andy Ampatin");
+            Console.WriteLine("Jessie Domenic B. Actub");
             Console.WriteLine("=== Simple ATM System ===");
             Console.WriteLine($"Initial Balance: P{accountBalance:N2}");
 
