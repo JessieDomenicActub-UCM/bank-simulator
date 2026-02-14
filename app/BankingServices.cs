@@ -1,26 +1,37 @@
-namespace ATMApp.Services
+namespace ATMApp.Service
 {
-    public static class BankingServices
+    public class BankingServices
     {
-        // Option 1: Pass-by-value
-        public static double GetBalance(double balance)
+        private double lastTransaction = 0;
+
+        public double GetBalance(double balance) 
         {
             return balance;
         }
 
-        // Option 2: ref (Deposit)
-        public static bool Deposit(ref double balance, double amount)
+        public void Deposit(ref double balance, double amount)
         {
-            return false; //placeholder return value, replace with actual implementation
+            balance = balance + amount;
+            lastTransaction = amount;
         }
 
-        // Option 3: ref + out (Withdraw)
-        public static void Withdraw(
-            ref double balance,
-            double amount,
-            out bool isSuccessful)
+        public void Withdraw(ref double balance, double amount, out bool success)
         {
-            isSuccessful = false; //placeholder value, replace with actual implementation
+            if (amount <= balance)
+            {
+                balance = balance - amount;
+                lastTransaction = amount;
+                success = true;
+            }
+            else
+            {
+                success = false;
+            }
+        }
+
+        public double GetLastTransaction()
+        {
+            return lastTransaction;
         }
     }
 }
